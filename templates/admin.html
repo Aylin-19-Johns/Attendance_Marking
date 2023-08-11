@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url("https://i.pinimg.com/originals/e8/d3/89/e8d389d64bd9a52b1747d74d5fb08935.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            display: block;
+            margin: 0 auto;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .server-buttons {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1;
+            text-align: right;
+        }
+
+        .server-buttons button {
+            margin-left: 5px;
+        }
+
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            position: relative;
+            color: white;
+        }
+        a{
+            text-decoration: none;
+            background-color: red;
+            padding: 10px;
+            color: white;
+            margin: 10px;
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="server-buttons">
+        {% if 'admin' in session %}
+        <a href="/logout">Logout</a>
+        {% endif %}
+        <button class="start-server">Start Server</button>
+        <button class="stop-server">Stop Server</button>
+    </div>
+    <div class="container">
+        <h1>Image Upload</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="image">
+            <input type="submit" value="Upload Image">
+        </form>
+    </div>
+
+    <script>
+        // Function to send start server API request
+        function startServer() {
+            // Send API request to /start endpoint
+            // You can replace the placeholder URL with your actual API endpoint
+            fetch('/start')
+                .then(response => {
+                    // Handle the response here if needed
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+        // Function to send stop server API request
+        function stopServer() {
+            // Send API request to /stop endpoint
+            // You can replace the placeholder URL with your actual API endpoint
+            fetch('/stop')
+                .then(response => {
+                    // Handle the response here if needed
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+        // Attach click event handlers to the buttons
+        const startServerButton = document.querySelector('.start-server');
+        startServerButton.addEventListener('click', startServer);
+
+        const stopServerButton = document.querySelector('.stop-server');
+        stopServerButton.addEventListener('click', stopServer);
+    </script>
+</body>
+</html>

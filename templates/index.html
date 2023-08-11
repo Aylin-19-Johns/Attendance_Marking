@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url("https://i.pinimg.com/originals/e8/d3/89/e8d389d64bd9a52b1747d74d5fb08935.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            display: block;
+            margin: 0 auto;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            position: relative;
+            color: white;
+        }
+
+        .server-buttons {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1;
+            text-align: right;
+        }
+
+        a{
+            text-decoration: none;
+            background-color: red;
+            padding: 10px;
+            color: white;
+            margin: 10px;
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="server-buttons">
+
+        <a href="/admin">Admin</a>
+
+    </div>
+    <div class="container">
+        <h1>Image Upload</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <label for="name">Name :</label>
+            <input type="name" name="name">
+            <input type="file" name="image">
+            <input type="submit" value="Upload Image">
+        </form>
+    </div>
+</body>
+</html>
